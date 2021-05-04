@@ -1,7 +1,11 @@
 package mapView;
+import grafos.Grafo;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 
+import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,11 +26,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainForm 
+public class MainForm extends JFrame
 {
 
 	private JFrame frame;
 	private JPanel panelMapa;
+	private JTextField textField;
 	private JPanel panelControles;
 	private JMapViewer _mapa;
 	private ArrayList<Coordinate> _lasCoordenadas;
@@ -44,7 +49,7 @@ public class MainForm
 			public void run() {
 				try {
 					MainForm window = new MainForm();
-					window.frame.setVisible(true);
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -65,19 +70,58 @@ public class MainForm
 	 */
 	private void initialize() 
 	{
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1200, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
-		panelMapa = new JPanel();
-		panelMapa.setBounds(100, 100, 1200, 800);
-		frame.getContentPane().add(panelMapa);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationByPlatform(true);
+		setTitle("TP 2 - Matias Marangone");
+        setResizable(false);
 		
-		panelControles = new JPanel();
-		panelControles.setBounds(457, 11, 1200, 800);
-		frame.getContentPane().add(panelControles);		
-		panelControles.setLayout(null);
+		//frame = new JFrame();
+		//frame.setBounds(100, 100, 1200, 800);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.getContentPane().setLayout(null);
+		
+		panelMapa = new JPanel(new FlowLayout(SwingConstants.LEADING, 20, 20));
+        //panelMapa = new JPanel(new BoxLayout(panelMapa, BoxLayout.Y_AXIS));
+        add(panelMapa);
+		
+        JLabel label1 = new JLabel("Buenos Aires - Capital Federal: ");
+        
+        JPanel buttonPane = new JPanel();
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
+        buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+        buttonPane.add(Box.createHorizontalGlue());
+        buttonPane.add(label1);
+        buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
+        buttonPane.add(label1);
+        
+        Container contentPane = getContentPane();
+        contentPane.add(listPane, BorderLayout.CENTER);
+        contentPane.add(buttonPane, BorderLayout.PAGE_END);
+        
+		//panelMapa.setBounds(100, 100, 1200, 800);
+		//frame.getContentPane().add(panelMapa);
+		
+		//panelControles = new JPanel();
+		//panelControles.setBounds(457, 11, 1200, 800);
+		//frame.getContentPane().add(panelControles);		
+		//panelControles.setLayout(null);
+		//add(panelControles);
+		
+		
+		 panelMapa.add(label1);
+		 textField = new JTextField(8);
+		 panelMapa.add(textField);
+		 
+		 JLabel label2 = new JLabel("Buenos Aires - Rio Negro: ");
+		 panelMapa.add(label2);
+		 JTextField textField2 = new JTextField(8);
+		 panelMapa.add(textField2);
+		 
+		 JLabel label3 = new JLabel("Buenos Aires - La Pampa: ");
+		 panelMapa.add(label3);
+		 JTextField textField3 = new JTextField(8);
+		 panelMapa.add(textField3);
 		
 		_mapa = new JMapViewer();
 		_mapa.setDisplayPosition(new Coordinate(-35.25421708829717, -65.43006617821713), 4);
@@ -90,9 +134,13 @@ public class MainForm
 		List<Coordinate> route = new ArrayList<Coordinate>(Arrays.asList(capital_federal, buenos_aires, buenos_aires));
 		_mapa.addMapPolygon(new MapPolygonImpl(route));
 		
-		detectarCoordenadas();
-		dibujarPoligono();
-		eliminarPoligono();		
+		
+		pack();
+		setVisible(true);
+		
+		//detectarCoordenadas();
+		//dibujarPoligono();
+		//eliminarPoligono();		
 	}
 	
 	private void detectarCoordenadas() 
