@@ -10,10 +10,23 @@ import javax.swing.JTextField;
 import javax.swing.JLayeredPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
+import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
+import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
+
 public class Form {
+	
+	private JMapViewer _mapa;
+	private ArrayList<Coordinate> _lasCoordenadas;
+	private MapPolygonImpl _poligono;
+	private JButton btnDibujarPolgono ;
 
 	private JFrame frame;
 	private JTextField textField_31;
@@ -46,8 +59,8 @@ public class Form {
 	private JTextField textField_27;
 	private JTextField textField_28;
 	private JTextField textField_29;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField arista12;
+	private JTextField arista116;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
@@ -94,9 +107,6 @@ public class Form {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1059, 581);
@@ -442,15 +452,15 @@ public class Form {
 		textField_29.setBounds(541, 398, 86, 20);
 		panel.add(textField_29);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(267, 54, 86, 20);
-		panel.add(textField);
+		arista12 = new JTextField();
+		arista12.setColumns(10);
+		arista12.setBounds(267, 54, 86, 20);
+		panel.add(arista12);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(267, 79, 86, 20);
-		panel.add(textField_1);
+		arista116 = new JTextField();
+		arista116.setColumns(10);
+		arista116.setBounds(267, 79, 86, 20);
+		panel.add(arista116);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
@@ -527,6 +537,17 @@ public class Form {
 		textField_11.setColumns(10);
 		
 		JButton btnNewButton_4 = new JButton("Generar");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//agarrar los pesos
+				int a12 = Integer.parseInt(arista12.getText());
+				int a116 = Integer.parseInt(arista116.getText());
+				
+				System.out.println(a12);
+				System.out.println(a116);
+			}
+		});
 		btnNewButton_4.setBounds(651, 439, 89, 23);
 		panel.add(btnNewButton_4);
 		
@@ -538,10 +559,160 @@ public class Form {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 956, 468);
 		layeredPane.add(panel_1);
+
+		_mapa = new JMapViewer();
+		_mapa.setDisplayPosition(new Coordinate(-35.25421708829717, -65.43006617821713), 4);
+				
+		panel_1.add(_mapa);
 		
-		JTextPane txtpnPanelVerGrafo = new JTextPane();
-		txtpnPanelVerGrafo.setText("Panel ver grafo original");
-		panel_1.add(txtpnPanelVerGrafo);
+		Coordinate capital_federal = new Coordinate(-34.6083, -58.3712);
+		Coordinate buenos_aires = new Coordinate(-36.157222, -60.569722);
+		Coordinate rio_negro = new Coordinate(-40.121232072786434, -67.2422522092288);
+		Coordinate la_pampa = new Coordinate(-37.003956446666535, -65.44565007026247);
+		Coordinate cordoba = new Coordinate(-31.711934584094696, -63.7192512984437);
+		Coordinate santa_fe = new Coordinate(-30.50389029094929, -60.8750049433848);
+		Coordinate entre_rios = new Coordinate(-31.9547182033473, -59.09072502289711);
+		Coordinate catamarca = new Coordinate(-27.89813364721282, -66.90722116376938);
+		Coordinate la_rioja = new Coordinate(-29.562722841135425, -66.97461051791764);
+		Coordinate santiago_del_estero = new Coordinate(-27.50189406578348, -63.25395216208365);
+		Coordinate tucuman = new Coordinate(-26.652698179265403, -65.28343332993346);
+		Coordinate salta = new Coordinate(-25.022698434873565, -64.55452544475297);
+		Coordinate chaco = new Coordinate(-26.18964268002508, -60.66435853428049);
+		Coordinate corrientes = new Coordinate(-28.780321113741714, -57.55675164907145);
+		Coordinate formosa = new Coordinate(-28.780321113741714, -57.55675164907145);
+		Coordinate chubut = new Coordinate(-43.95420000996885, -68.85351637685419);
+		Coordinate santa_cruz = new Coordinate(-48.3659957995137, -69.65449778450795);
+		Coordinate san_luis = new Coordinate(-33.61976424081013, -66.05855385857673);
+		Coordinate misiones = new Coordinate(-26.58999567468294, -54.28276056802246);
+		Coordinate jujuy = new Coordinate(-22.783620461304313, -65.88568111082124);
+		Coordinate mendoza = new Coordinate(-34.27795257467895, -68.42296195797809);
+		Coordinate neuquen = new Coordinate(-38.29125409006371, -69.87350888681866);
+		Coordinate san_juan = new Coordinate(-30.627301991317438, -69.05397990650064);
+		Coordinate tierra_del_fuego = new Coordinate(-54.271547409116124, -67.55845717895879);
+		
+		
+		
+		
+		List<Coordinate> route = new ArrayList<Coordinate>(Arrays.asList(capital_federal, buenos_aires, buenos_aires));
+		List<Coordinate> route2 = new ArrayList<Coordinate>(Arrays.asList(buenos_aires, rio_negro, rio_negro));
+		List<Coordinate> route3 = new ArrayList<Coordinate>(Arrays.asList(buenos_aires, la_pampa, la_pampa));
+		List<Coordinate> route4 = new ArrayList<Coordinate>(Arrays.asList(buenos_aires, cordoba, cordoba));
+		List<Coordinate> route5 = new ArrayList<Coordinate>(Arrays.asList(buenos_aires, santa_fe, santa_fe));
+		List<Coordinate> route6 = new ArrayList<Coordinate>(Arrays.asList(buenos_aires, entre_rios, entre_rios));
+		List<Coordinate> route7 = new ArrayList<Coordinate>(Arrays.asList(catamarca, la_rioja, la_rioja));
+		List<Coordinate> route8 = new ArrayList<Coordinate>(Arrays.asList(catamarca, cordoba, cordoba));
+		List<Coordinate> route9 = new ArrayList<Coordinate>(Arrays.asList(catamarca, santiago_del_estero, santiago_del_estero));
+		List<Coordinate> route10 = new ArrayList<Coordinate>(Arrays.asList(catamarca, tucuman, tucuman));
+		List<Coordinate> route11 = new ArrayList<Coordinate>(Arrays.asList(catamarca, salta, salta));
+		List<Coordinate> route12 = new ArrayList<Coordinate>(Arrays.asList(chaco, corrientes, corrientes));
+		List<Coordinate> route13 = new ArrayList<Coordinate>(Arrays.asList(chaco, santa_fe, santa_fe));
+		List<Coordinate> route14 = new ArrayList<Coordinate>(Arrays.asList(chaco, santiago_del_estero, santiago_del_estero));
+		List<Coordinate> route15 = new ArrayList<Coordinate>(Arrays.asList(chaco, salta, salta));
+		List<Coordinate> route16 = new ArrayList<Coordinate>(Arrays.asList(chaco, formosa, formosa));
+		List<Coordinate> route17 = new ArrayList<Coordinate>(Arrays.asList(chubut, santa_cruz, santa_cruz));
+		List<Coordinate> route18 = new ArrayList<Coordinate>(Arrays.asList(chubut, rio_negro, rio_negro));
+		List<Coordinate> route19 = new ArrayList<Coordinate>(Arrays.asList(cordoba, la_pampa, la_pampa));
+		List<Coordinate> route20 = new ArrayList<Coordinate>(Arrays.asList(cordoba, san_luis, san_luis));
+		List<Coordinate> route21 = new ArrayList<Coordinate>(Arrays.asList(cordoba, la_rioja, la_rioja));
+		List<Coordinate> route22 = new ArrayList<Coordinate>(Arrays.asList(cordoba, santiago_del_estero, santiago_del_estero));
+		List<Coordinate> route23 = new ArrayList<Coordinate>(Arrays.asList(cordoba, santa_fe, santa_fe));
+		List<Coordinate> route24 = new ArrayList<Coordinate>(Arrays.asList(corrientes, misiones, misiones));
+		List<Coordinate> route25 = new ArrayList<Coordinate>(Arrays.asList(corrientes, entre_rios, entre_rios));
+		List<Coordinate> route26 = new ArrayList<Coordinate>(Arrays.asList(corrientes, santa_fe, santa_fe));
+		List<Coordinate> route27 = new ArrayList<Coordinate>(Arrays.asList(entre_rios, santa_fe, santa_fe));
+		List<Coordinate> route28 = new ArrayList<Coordinate>(Arrays.asList(formosa, salta, salta));
+		List<Coordinate> route29 = new ArrayList<Coordinate>(Arrays.asList(jujuy, salta, salta));
+		List<Coordinate> route30 = new ArrayList<Coordinate>(Arrays.asList(la_pampa, mendoza, mendoza));
+		List<Coordinate> route31 = new ArrayList<Coordinate>(Arrays.asList(la_pampa, san_luis, san_luis));
+		List<Coordinate> route32 = new ArrayList<Coordinate>(Arrays.asList(la_pampa, rio_negro, rio_negro));
+		List<Coordinate> route33 = new ArrayList<Coordinate>(Arrays.asList(la_pampa, rio_negro, rio_negro));
+		List<Coordinate> route34 = new ArrayList<Coordinate>(Arrays.asList(la_pampa, neuquen, neuquen));
+		List<Coordinate> route35 = new ArrayList<Coordinate>(Arrays.asList(la_rioja, san_luis, san_luis));
+		List<Coordinate> route36 = new ArrayList<Coordinate>(Arrays.asList(la_rioja, san_juan, san_juan));
+		List<Coordinate> route37 = new ArrayList<Coordinate>(Arrays.asList(mendoza, san_juan, san_juan));
+		List<Coordinate> route38 = new ArrayList<Coordinate>(Arrays.asList(mendoza, san_luis, san_luis));
+		List<Coordinate> route39 = new ArrayList<Coordinate>(Arrays.asList(mendoza, neuquen, neuquen));
+		List<Coordinate> route40 = new ArrayList<Coordinate>(Arrays.asList(neuquen, rio_negro, rio_negro));
+		List<Coordinate> route41 = new ArrayList<Coordinate>(Arrays.asList(salta, santiago_del_estero, santiago_del_estero));
+		List<Coordinate> route42 = new ArrayList<Coordinate>(Arrays.asList(salta, tucuman, tucuman));
+		List<Coordinate> route43 = new ArrayList<Coordinate>(Arrays.asList(san_juan, san_luis, san_luis));
+		List<Coordinate> route44 = new ArrayList<Coordinate>(Arrays.asList(santa_cruz, tierra_del_fuego, tierra_del_fuego));
+		List<Coordinate> route45 = new ArrayList<Coordinate>(Arrays.asList(santa_fe, santiago_del_estero, santiago_del_estero));
+		List<Coordinate> route46 = new ArrayList<Coordinate>(Arrays.asList(tucuman, santiago_del_estero, santiago_del_estero));
+		
+		_mapa.addMapPolygon(new MapPolygonImpl(route));
+		_mapa.addMapPolygon(new MapPolygonImpl(route2));
+		_mapa.addMapPolygon(new MapPolygonImpl(route3));
+		_mapa.addMapPolygon(new MapPolygonImpl(route4));
+		_mapa.addMapPolygon(new MapPolygonImpl(route5));
+		_mapa.addMapPolygon(new MapPolygonImpl(route6));
+		_mapa.addMapPolygon(new MapPolygonImpl(route7));
+		_mapa.addMapPolygon(new MapPolygonImpl(route8));
+		_mapa.addMapPolygon(new MapPolygonImpl(route9));
+		_mapa.addMapPolygon(new MapPolygonImpl(route10));
+		_mapa.addMapPolygon(new MapPolygonImpl(route11));
+		_mapa.addMapPolygon(new MapPolygonImpl(route12));
+		_mapa.addMapPolygon(new MapPolygonImpl(route13));
+		_mapa.addMapPolygon(new MapPolygonImpl(route14));
+		_mapa.addMapPolygon(new MapPolygonImpl(route15));
+		_mapa.addMapPolygon(new MapPolygonImpl(route16));
+		_mapa.addMapPolygon(new MapPolygonImpl(route17));
+		_mapa.addMapPolygon(new MapPolygonImpl(route18));
+		_mapa.addMapPolygon(new MapPolygonImpl(route19));
+		_mapa.addMapPolygon(new MapPolygonImpl(route20));
+		_mapa.addMapPolygon(new MapPolygonImpl(route21));
+		_mapa.addMapPolygon(new MapPolygonImpl(route22));
+		_mapa.addMapPolygon(new MapPolygonImpl(route23));
+		_mapa.addMapPolygon(new MapPolygonImpl(route24));
+		_mapa.addMapPolygon(new MapPolygonImpl(route25));
+		_mapa.addMapPolygon(new MapPolygonImpl(route26));
+		_mapa.addMapPolygon(new MapPolygonImpl(route27));
+		_mapa.addMapPolygon(new MapPolygonImpl(route28));
+		_mapa.addMapPolygon(new MapPolygonImpl(route29));
+		_mapa.addMapPolygon(new MapPolygonImpl(route30));
+		_mapa.addMapPolygon(new MapPolygonImpl(route31));
+		_mapa.addMapPolygon(new MapPolygonImpl(route32));
+		_mapa.addMapPolygon(new MapPolygonImpl(route33));
+		_mapa.addMapPolygon(new MapPolygonImpl(route34));
+		_mapa.addMapPolygon(new MapPolygonImpl(route35));
+		_mapa.addMapPolygon(new MapPolygonImpl(route36));
+		_mapa.addMapPolygon(new MapPolygonImpl(route37));
+		_mapa.addMapPolygon(new MapPolygonImpl(route38));
+		_mapa.addMapPolygon(new MapPolygonImpl(route39));
+		_mapa.addMapPolygon(new MapPolygonImpl(route40));
+		_mapa.addMapPolygon(new MapPolygonImpl(route41));
+		_mapa.addMapPolygon(new MapPolygonImpl(route42));
+		_mapa.addMapPolygon(new MapPolygonImpl(route43));
+		_mapa.addMapPolygon(new MapPolygonImpl(route44));
+		_mapa.addMapPolygon(new MapPolygonImpl(route45));
+		_mapa.addMapPolygon(new MapPolygonImpl(route46));
+		
+		
+		_mapa.addMapMarker(new MapMarkerDot("", buenos_aires));
+		_mapa.addMapMarker(new MapMarkerDot("", catamarca));
+		_mapa.addMapMarker(new MapMarkerDot("", chaco));
+		_mapa.addMapMarker(new MapMarkerDot("", chubut));
+		_mapa.addMapMarker(new MapMarkerDot("", cordoba));
+		_mapa.addMapMarker(new MapMarkerDot("", corrientes));
+		_mapa.addMapMarker(new MapMarkerDot("", entre_rios));
+		_mapa.addMapMarker(new MapMarkerDot("", formosa));
+		_mapa.addMapMarker(new MapMarkerDot("", jujuy));
+		_mapa.addMapMarker(new MapMarkerDot("", la_pampa));
+		_mapa.addMapMarker(new MapMarkerDot("", la_rioja));
+		_mapa.addMapMarker(new MapMarkerDot("", mendoza));
+		_mapa.addMapMarker(new MapMarkerDot("", misiones));
+		_mapa.addMapMarker(new MapMarkerDot("", neuquen));
+		_mapa.addMapMarker(new MapMarkerDot("", rio_negro));
+		_mapa.addMapMarker(new MapMarkerDot("", salta));
+		_mapa.addMapMarker(new MapMarkerDot("", san_juan));
+		_mapa.addMapMarker(new MapMarkerDot("", san_luis));
+		_mapa.addMapMarker(new MapMarkerDot("", santa_cruz));
+		_mapa.addMapMarker(new MapMarkerDot("", santa_fe));
+		_mapa.addMapMarker(new MapMarkerDot("", santiago_del_estero));
+		_mapa.addMapMarker(new MapMarkerDot("", tierra_del_fuego));
+		_mapa.addMapMarker(new MapMarkerDot("", tucuman));
+		
+		
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(0, 0, 956, 468);
