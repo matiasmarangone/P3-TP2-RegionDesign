@@ -609,9 +609,9 @@ public class Form {
 				int listaDePesos[] = new int[] {a1_2,a1_16,a1_11,a1_6,a1_21,a1_8,a3_12,a3_6,a3_22,a3_24,a3_17,a4_7,a4_21,a4_22,a4_17,a4_9,a5_20,a5_16,a6_11,a6_19,a6_12,a6_22,a6_21,a7_14,a7_8,a7_21,a8_21,a9_17,a10_17,a11_13,a11_19,a11_16,a11_15,a12_19,a12_18,a13_18,a13_19,a13_15,a15_16,a17_22,a17_24,a18_19,a20_23,a21_22,a22_24
 };
 
-				AGM.guardarPesosGrafoArgentina(listaDePesos);
+				//AGM.guardarPesosGrafoArgentina(listaDePesos);
 				
-				AGM.arbolGeneradorMinimoUsuario(reg_buscadas);
+				AGM.arbolGeneradorMinimoUsuario(reg_buscadas,listaDePesos);
 				
 				txtpnPanelAgm.setText(AGM.renderAGM());
 				System.out.println(AGM.renderAGM());
