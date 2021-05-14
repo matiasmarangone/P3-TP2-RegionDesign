@@ -21,6 +21,8 @@ import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
 
+import arbolgeneradorminimo.AGM;
+
 public class Form {
 	
 	private JMapViewer _mapa;
@@ -29,52 +31,52 @@ public class Form {
 	private JButton btnDibujarPolgono ;
 
 	private JFrame frame;
-	private JTextField textField_31;
-	private JTextField textField_32;
-	private JTextField textField_33;
-	private JTextField textField_34;
-	private JTextField textField_35;
-	private JTextField textField_36;
-	private JTextField textField_37;
-	private JTextField textField_38;
-	private JTextField textField_39;
-	private JTextField textField_40;
-	private JTextField textField_41;
-	private JTextField textField_42;
-	private JTextField textField_43;
-	private JTextField textField_44;
-	private JTextField textField_45;
-	private JTextField textField_13;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
-	private JTextField textField_21;
-	private JTextField textField_22;
-	private JTextField textField_23;
-	private JTextField textField_24;
-	private JTextField textField_25;
-	private JTextField textField_26;
-	private JTextField textField_27;
-	private JTextField textField_28;
-	private JTextField textField_29;
-	private JTextField arista12;
-	private JTextField arista116;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_12;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_30;
-	private JTextField textField_11;
+	private JTextField arista11_19;
+	private JTextField arista11_16;
+	private JTextField arista11_15;
+	private JTextField arista12_19;
+	private JTextField arista12_18;
+	private JTextField arista13_18;
+	private JTextField arista13_19;
+	private JTextField arista13_15;
+	private JTextField arista15_16;
+	private JTextField arista17_22;
+	private JTextField arista17_24;
+	private JTextField arista18_19;
+	private JTextField arista20_23;
+	private JTextField arista21_22;
+	private JTextField arista22_24;
+	private JTextField arista4_9;
+	private JTextField arista5_20;
+	private JTextField arista5_16;
+	private JTextField arista6_11;
+	private JTextField arista6_19;
+	private JTextField arista6_12;
+	private JTextField arista6_22;
+	private JTextField arista6_21;
+	private JTextField arista7_14;
+	private JTextField arista7_8;
+	private JTextField arista7_21;
+	private JTextField arista8_21;
+	private JTextField arista9_17;
+	private JTextField arista10_17;
+	private JTextField arista11_13;
+	private JTextField arista1_2;
+	private JTextField arista1_16;
+	private JTextField arista1_11;
+	private JTextField arista1_6;
+	private JTextField arista1_21;
+	private JTextField arista1_8;
+	private JTextField arista3_12;
+	private JTextField arista3_6;
+	private JTextField arista3_22;
+	private JTextField arista3_24;
+	private JTextField arista3_17;
+	private JTextField arista4_7;
+	private JTextField arista4_21;
+	private JTextField arista4_22;
+	private JTextField arista4_17;
+	private JTextField cantidad_regiones;
 	JLayeredPane layeredPane = new JLayeredPane();
 
 	/**
@@ -298,254 +300,324 @@ public class Form {
 		lblNewLabel_1_1_1_1_1_1_1_7_2_1.setBounds(637, 401, 185, 14);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1_7_2_1);
 		
-		textField_31 = new JTextField();
-		textField_31.setColumns(10);
-		textField_31.setBounds(829, 54, 86, 20);
-		panel.add(textField_31);
-		
-		textField_32 = new JTextField();
-		textField_32.setColumns(10);
-		textField_32.setBounds(829, 79, 86, 20);
-		panel.add(textField_32);
-		
-		textField_33 = new JTextField();
-		textField_33.setColumns(10);
-		textField_33.setBounds(829, 103, 86, 20);
-		panel.add(textField_33);
-		
-		textField_34 = new JTextField();
-		textField_34.setColumns(10);
-		textField_34.setBounds(829, 128, 86, 20);
-		panel.add(textField_34);
-		
-		textField_35 = new JTextField();
-		textField_35.setColumns(10);
-		textField_35.setBounds(829, 153, 86, 20);
-		panel.add(textField_35);
-		
-		textField_36 = new JTextField();
-		textField_36.setColumns(10);
-		textField_36.setBounds(829, 177, 86, 20);
-		panel.add(textField_36);
-		
-		textField_37 = new JTextField();
-		textField_37.setColumns(10);
-		textField_37.setBounds(829, 202, 86, 20);
-		panel.add(textField_37);
-		
-		textField_38 = new JTextField();
-		textField_38.setColumns(10);
-		textField_38.setBounds(829, 227, 86, 20);
-		panel.add(textField_38);
-		
-		textField_39 = new JTextField();
-		textField_39.setColumns(10);
-		textField_39.setBounds(829, 251, 86, 20);
-		panel.add(textField_39);
-		
-		textField_40 = new JTextField();
-		textField_40.setColumns(10);
-		textField_40.setBounds(829, 276, 86, 20);
-		panel.add(textField_40);
-		
-		textField_41 = new JTextField();
-		textField_41.setColumns(10);
-		textField_41.setBounds(829, 301, 86, 20);
-		panel.add(textField_41);
-		
-		textField_42 = new JTextField();
-		textField_42.setColumns(10);
-		textField_42.setBounds(829, 325, 86, 20);
-		panel.add(textField_42);
-		
-		textField_43 = new JTextField();
-		textField_43.setColumns(10);
-		textField_43.setBounds(829, 348, 86, 20);
-		panel.add(textField_43);
-		
-		textField_44 = new JTextField();
-		textField_44.setColumns(10);
-		textField_44.setBounds(829, 373, 86, 20);
-		panel.add(textField_44);
-		
-		textField_45 = new JTextField();
-		textField_45.setColumns(10);
-		textField_45.setBounds(829, 398, 86, 20);
-		panel.add(textField_45);
 		
 		JLabel lblNewLabel_1_3_1 = new JLabel("La Pampa - Mendoza");
 		lblNewLabel_1_3_1.setBounds(408, 401, 137, 14);
 		panel.add(lblNewLabel_1_3_1);
 		
-		textField_13 = new JTextField();
-		textField_13.setColumns(10);
-		textField_13.setBounds(541, 54, 86, 20);
-		panel.add(textField_13);
+		//Obtención de peso/distancia entre vertices ingresado por el usuario
 		
-		textField_16 = new JTextField();
-		textField_16.setColumns(10);
-		textField_16.setBounds(541, 79, 86, 20);
-		panel.add(textField_16);
 		
-		textField_17 = new JTextField();
-		textField_17.setColumns(10);
-		textField_17.setBounds(541, 103, 86, 20);
-		panel.add(textField_17);
+		arista11_19 = new JTextField();
+		arista11_19.setColumns(10);
+		arista11_19.setBounds(829, 54, 86, 20);
+		panel.add(arista11_19);
 		
-		textField_18 = new JTextField();
-		textField_18.setColumns(10);
-		textField_18.setBounds(541, 128, 86, 20);
-		panel.add(textField_18);
+		arista11_16 = new JTextField();
+		arista11_16.setColumns(10);
+		arista11_16.setBounds(829, 79, 86, 20);
+		panel.add(arista11_16);
 		
-		textField_19 = new JTextField();
-		textField_19.setColumns(10);
-		textField_19.setBounds(541, 153, 86, 20);
-		panel.add(textField_19);
+		arista11_15 = new JTextField();
+		arista11_15.setColumns(10);
+		arista11_15.setBounds(829, 103, 86, 20);
+		panel.add(arista11_15);
 		
-		textField_20 = new JTextField();
-		textField_20.setColumns(10);
-		textField_20.setBounds(541, 177, 86, 20);
-		panel.add(textField_20);
+		arista12_19 = new JTextField();
+		arista12_19.setColumns(10);
+		arista12_19.setBounds(829, 128, 86, 20);
+		panel.add(arista12_19);
 		
-		textField_21 = new JTextField();
-		textField_21.setColumns(10);
-		textField_21.setBounds(541, 202, 86, 20);
-		panel.add(textField_21);
+		arista12_18 = new JTextField();
+		arista12_18.setColumns(10);
+		arista12_18.setBounds(829, 153, 86, 20);
+		panel.add(arista12_18);
 		
-		textField_22 = new JTextField();
-		textField_22.setColumns(10);
-		textField_22.setBounds(541, 227, 86, 20);
-		panel.add(textField_22);
+		arista13_18 = new JTextField();
+		arista13_18.setColumns(10);
+		arista13_18.setBounds(829, 177, 86, 20);
+		panel.add(arista13_18);
 		
-		textField_23 = new JTextField();
-		textField_23.setColumns(10);
-		textField_23.setBounds(541, 251, 86, 20);
-		panel.add(textField_23);
+		arista13_19 = new JTextField();
+		arista13_19.setColumns(10);
+		arista13_19.setBounds(829, 202, 86, 20);
+		panel.add(arista13_19);
 		
-		textField_24 = new JTextField();
-		textField_24.setColumns(10);
-		textField_24.setBounds(541, 276, 86, 20);
-		panel.add(textField_24);
+		arista13_15 = new JTextField();
+		arista13_15.setColumns(10);
+		arista13_15.setBounds(829, 227, 86, 20);
+		panel.add(arista13_15);
 		
-		textField_25 = new JTextField();
-		textField_25.setColumns(10);
-		textField_25.setBounds(541, 301, 86, 20);
-		panel.add(textField_25);
+		arista15_16 = new JTextField();
+		arista15_16.setColumns(10);
+		arista15_16.setBounds(829, 251, 86, 20);
+		panel.add(arista15_16);
 		
-		textField_26 = new JTextField();
-		textField_26.setColumns(10);
-		textField_26.setBounds(541, 325, 86, 20);
-		panel.add(textField_26);
+		arista17_22 = new JTextField();
+		arista17_22.setColumns(10);
+		arista17_22.setBounds(829, 276, 86, 20);
+		panel.add(arista17_22);
 		
-		textField_27 = new JTextField();
-		textField_27.setColumns(10);
-		textField_27.setBounds(541, 348, 86, 20);
-		panel.add(textField_27);
+		arista17_24 = new JTextField();
+		arista17_24.setColumns(10);
+		arista17_24.setBounds(829, 301, 86, 20);
+		panel.add(arista17_24);
 		
-		textField_28 = new JTextField();
-		textField_28.setColumns(10);
-		textField_28.setBounds(541, 373, 86, 20);
-		panel.add(textField_28);
+		arista18_19 = new JTextField();
+		arista18_19.setColumns(10);
+		arista18_19.setBounds(829, 325, 86, 20);
+		panel.add(arista18_19);
 		
-		textField_29 = new JTextField();
-		textField_29.setColumns(10);
-		textField_29.setBounds(541, 398, 86, 20);
-		panel.add(textField_29);
+		arista20_23 = new JTextField();
+		arista20_23.setColumns(10);
+		arista20_23.setBounds(829, 348, 86, 20);
+		panel.add(arista20_23);
 		
-		arista12 = new JTextField();
-		arista12.setColumns(10);
-		arista12.setBounds(267, 54, 86, 20);
-		panel.add(arista12);
+		arista21_22 = new JTextField();
+		arista21_22.setColumns(10);
+		arista21_22.setBounds(829, 373, 86, 20);
+		panel.add(arista21_22);
 		
-		arista116 = new JTextField();
-		arista116.setColumns(10);
-		arista116.setBounds(267, 79, 86, 20);
-		panel.add(arista116);
+		arista22_24 = new JTextField();
+		arista22_24.setColumns(10);
+		arista22_24.setBounds(829, 398, 86, 20);
+		panel.add(arista22_24);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(267, 103, 86, 20);
-		panel.add(textField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(267, 128, 86, 20);
-		panel.add(textField_3);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(267, 153, 86, 20);
-		panel.add(textField_4);
+		arista4_9 = new JTextField();
+		arista4_9.setColumns(10);
+		arista4_9.setBounds(541, 54, 86, 20);
+		panel.add(arista4_9);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(267, 177, 86, 20);
-		panel.add(textField_5);
+		arista5_20 = new JTextField();
+		arista5_20.setColumns(10);
+		arista5_20.setBounds(541, 79, 86, 20);
+		panel.add(arista5_20);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(267, 202, 86, 20);
-		panel.add(textField_6);
+		arista5_16 = new JTextField();
+		arista5_16.setColumns(10);
+		arista5_16.setBounds(541, 103, 86, 20);
+		panel.add(arista5_16);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(267, 227, 86, 20);
-		panel.add(textField_7);
+		arista6_11 = new JTextField();
+		arista6_11.setColumns(10);
+		arista6_11.setBounds(541, 128, 86, 20);
+		panel.add(arista6_11);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(267, 251, 86, 20);
-		panel.add(textField_8);
+		arista6_19 = new JTextField();
+		arista6_19.setColumns(10);
+		arista6_19.setBounds(541, 153, 86, 20);
+		panel.add(arista6_19);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(267, 276, 86, 20);
-		panel.add(textField_9);
+		arista6_12 = new JTextField();
+		arista6_12.setColumns(10);
+		arista6_12.setBounds(541, 177, 86, 20);
+		panel.add(arista6_12);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(267, 301, 86, 20);
-		panel.add(textField_10);
+		arista6_22 = new JTextField();
+		arista6_22.setColumns(10);
+		arista6_22.setBounds(541, 202, 86, 20);
+		panel.add(arista6_22);
 		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(267, 325, 86, 20);
-		panel.add(textField_12);
+		arista6_21 = new JTextField();
+		arista6_21.setColumns(10);
+		arista6_21.setBounds(541, 227, 86, 20);
+		panel.add(arista6_21);
 		
-		textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(267, 348, 86, 20);
-		panel.add(textField_14);
+		arista7_14 = new JTextField();
+		arista7_14.setColumns(10);
+		arista7_14.setBounds(541, 251, 86, 20);
+		panel.add(arista7_14);
 		
-		textField_15 = new JTextField();
-		textField_15.setColumns(10);
-		textField_15.setBounds(267, 373, 86, 20);
-		panel.add(textField_15);
+		arista7_8 = new JTextField();
+		arista7_8.setColumns(10);
+		arista7_8.setBounds(541, 276, 86, 20);
+		panel.add(arista7_8);
 		
-		textField_30 = new JTextField();
-		textField_30.setColumns(10);
-		textField_30.setBounds(267, 398, 86, 20);
-		panel.add(textField_30);
+		arista7_21 = new JTextField();
+		arista7_21.setColumns(10);
+		arista7_21.setBounds(541, 301, 86, 20);
+		panel.add(arista7_21);
+		
+		arista8_21 = new JTextField();
+		arista8_21.setColumns(10);
+		arista8_21.setBounds(541, 325, 86, 20);
+		panel.add(arista8_21);
+		
+		arista9_17 = new JTextField();
+		arista9_17.setColumns(10);
+		arista9_17.setBounds(541, 348, 86, 20);
+		panel.add(arista9_17);
+		
+		arista10_17 = new JTextField();
+		arista10_17.setColumns(10);
+		arista10_17.setBounds(541, 373, 86, 20);
+		panel.add(arista10_17);
+		
+		arista11_13 = new JTextField();
+		arista11_13.setColumns(10);
+		arista11_13.setBounds(541, 398, 86, 20);
+		panel.add(arista11_13);
+		
+		arista1_2 = new JTextField();
+		arista1_2.setColumns(10);
+		arista1_2.setBounds(267, 54, 86, 20);
+		panel.add(arista1_2);
+		
+		arista1_16 = new JTextField();
+		arista1_16.setColumns(10);
+		arista1_16.setBounds(267, 79, 86, 20);
+		panel.add(arista1_16);
+		
+		arista1_11 = new JTextField();
+		arista1_11.setColumns(10);
+		arista1_11.setBounds(267, 103, 86, 20);
+		panel.add(arista1_11);
+		
+		arista1_6 = new JTextField();
+		arista1_6.setColumns(10);
+		arista1_6.setBounds(267, 128, 86, 20);
+		panel.add(arista1_6);
+		
+		arista1_21 = new JTextField();
+		arista1_21.setColumns(10);
+		arista1_21.setBounds(267, 153, 86, 20);
+		panel.add(arista1_21);
+		
+		arista1_8 = new JTextField();
+		arista1_8.setColumns(10);
+		arista1_8.setBounds(267, 177, 86, 20);
+		panel.add(arista1_8);
+		
+		arista3_12 = new JTextField();
+		arista3_12.setColumns(10);
+		arista3_12.setBounds(267, 202, 86, 20);
+		panel.add(arista3_12);
+		
+		arista3_6 = new JTextField();
+		arista3_6.setColumns(10);
+		arista3_6.setBounds(267, 227, 86, 20);
+		panel.add(arista3_6);
+		
+		arista3_22 = new JTextField();
+		arista3_22.setColumns(10);
+		arista3_22.setBounds(267, 251, 86, 20);
+		panel.add(arista3_22);
+		
+		arista3_24 = new JTextField();
+		arista3_24.setColumns(10);
+		arista3_24.setBounds(267, 276, 86, 20);
+		panel.add(arista3_24);
+		
+		arista3_17 = new JTextField();
+		arista3_17.setColumns(10);
+		arista3_17.setBounds(267, 301, 86, 20);
+		panel.add(arista3_17);
+		
+		arista4_7 = new JTextField();
+		arista4_7.setColumns(10);
+		arista4_7.setBounds(267, 325, 86, 20);
+		panel.add(arista4_7);
+		
+		arista4_21 = new JTextField();
+		arista4_21.setColumns(10);
+		arista4_21.setBounds(267, 348, 86, 20);
+		panel.add(arista4_21);
+		
+		arista4_22 = new JTextField();
+		arista4_22.setColumns(10);
+		arista4_22.setBounds(267, 373, 86, 20);
+		panel.add(arista4_22);
+		
+		arista4_17 = new JTextField();
+		arista4_17.setColumns(10);
+		arista4_17.setBounds(267, 398, 86, 20);
+		panel.add(arista4_17);
 		
 		JLabel lblNewLabel_1 = new JLabel("Cantidad de regiones buscadas");
 		lblNewLabel_1.setBounds(262, 443, 217, 14);
 		panel.add(lblNewLabel_1);
 		
-		textField_11 = new JTextField();
-		textField_11.setBounds(489, 440, 86, 20);
-		panel.add(textField_11);
-		textField_11.setColumns(10);
+		cantidad_regiones = new JTextField();
+		cantidad_regiones.setBounds(489, 440, 86, 20);
+		panel.add(cantidad_regiones);
+		cantidad_regiones.setColumns(10);
+		
+		
+
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(0, 0, 956, 468);
+		layeredPane.add(panel_2);
+		
+		JTextPane txtpnPanelAgm = new JTextPane();
+		
 		
 		JButton btnNewButton_4 = new JButton("Generar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				int reg_buscadas = Integer.parseInt(cantidad_regiones.getText());
 				//agarrar los pesos
-				int a12 = Integer.parseInt(arista12.getText());
-				int a116 = Integer.parseInt(arista116.getText());
+				int a1_2 = Integer.parseInt(arista1_2.getText());
+				int a1_16 = Integer.parseInt(arista1_16.getText());
+				int a1_11 = Integer.parseInt(arista1_11.getText());
+				int a1_6 = Integer.parseInt(arista1_6.getText());
+				int a1_21 = Integer.parseInt(arista1_21.getText());
+				int a1_8 = Integer.parseInt(arista1_8.getText());
+				int a3_12 = Integer.parseInt(arista3_12.getText());
+				int a3_6 = Integer.parseInt(arista3_6.getText());
+				int a3_22 = Integer.parseInt(arista3_22.getText());
+				int a3_24 = Integer.parseInt(arista3_24.getText());
+				int a3_17 = Integer.parseInt(arista3_17.getText());
+				int a4_7 = Integer.parseInt(arista4_7.getText());
+				int a4_21 = Integer.parseInt(arista4_21.getText());
+				int a4_22 = Integer.parseInt(arista4_22.getText());
+				int a4_17 = Integer.parseInt(arista4_17.getText());
+				int a4_9 = Integer.parseInt(arista4_9.getText());
+				int a5_20 = Integer.parseInt(arista5_20.getText());
+				int a5_16 = Integer.parseInt(arista5_16.getText());
+				int a6_11 = Integer.parseInt(arista6_11.getText());
+				int a6_19 = Integer.parseInt(arista6_19.getText());
+				int a6_12 = Integer.parseInt(arista6_12.getText());
+				int a6_22 = Integer.parseInt(arista6_22.getText());
+				int a6_21 = Integer.parseInt(arista6_21.getText());
+				int a7_14 = Integer.parseInt(arista7_14.getText());
+				int a7_8 = Integer.parseInt(arista7_8.getText());
+				int a7_21 = Integer.parseInt(arista7_21.getText());
+				int a8_21 = Integer.parseInt(arista8_21.getText());
+				int a9_17 = Integer.parseInt(arista9_17.getText());
+				int a10_17 = Integer.parseInt(arista10_17.getText());
+				int a11_13 = Integer.parseInt(arista11_13.getText());
+				int a11_19 = Integer.parseInt(arista11_19.getText());
+				int a11_16 = Integer.parseInt(arista11_16.getText());
+				int a11_15 = Integer.parseInt(arista11_15.getText());
+				int a12_19 = Integer.parseInt(arista12_19.getText());
+				int a12_18 = Integer.parseInt(arista12_18.getText());
+				int a13_18 = Integer.parseInt(arista13_18.getText());
+				int a13_19 = Integer.parseInt(arista13_19.getText());
+				int a13_15 = Integer.parseInt(arista13_15.getText());
+				int a15_16 = Integer.parseInt(arista15_16.getText());
+				int a17_22 = Integer.parseInt(arista17_22.getText());
+				int a17_24 = Integer.parseInt(arista17_24.getText());
+				int a18_19 = Integer.parseInt(arista18_19.getText());
+				int a20_23 = Integer.parseInt(arista20_23.getText());
+				int a21_22 = Integer.parseInt(arista21_22.getText());
+				int a22_24 = Integer.parseInt(arista22_24.getText());
 				
-				System.out.println(a12);
-				System.out.println(a116);
+				int listaDePesos[] = new int[] {a1_2,a1_16,a1_11,a1_6,a1_21,a1_8,a3_12,a3_6,a3_22,a3_24,a3_17,a4_7,a4_21,a4_22,a4_17,a4_9,a5_20,a5_16,a6_11,a6_19,a6_12,a6_22,a6_21,a7_14,a7_8,a7_21,a8_21,a9_17,a10_17,a11_13,a11_19,a11_16,a11_15,a12_19,a12_18,a13_18,a13_19,a13_15,a15_16,a17_22,a17_24,a18_19,a20_23,a21_22,a22_24
+};
+
+				AGM.guardarPesosGrafoArgentina(listaDePesos);
+				
+				AGM.arbolGeneradorMinimoUsuario(reg_buscadas);
+				
+				txtpnPanelAgm.setText(AGM.renderAGM());
+				System.out.println(AGM.renderAGM());
+				panel_2.add(txtpnPanelAgm);
+				panel_2.repaint();
+			
 			}
 		});
 		btnNewButton_4.setBounds(651, 439, 89, 23);
@@ -712,41 +784,14 @@ public class Form {
 		_mapa.addMapMarker(new MapMarkerDot("", tierra_del_fuego));
 		_mapa.addMapMarker(new MapMarkerDot("", tucuman));
 		
-		
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 956, 468);
-		layeredPane.add(panel_2);
-		
-		JTextPane txtpnPanelAgm = new JTextPane();
-		txtpnPanelAgm.setText("panel AGM");
-		panel_2.add(txtpnPanelAgm);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(0, 0, 956, 468);
-		layeredPane.add(panel_3);
-		
-		JTextPane txtpnPanelRegiones = new JTextPane();
-		txtpnPanelRegiones.setText("panel regiones");
-		panel_3.add(txtpnPanelRegiones);
-		
 		JButton btnNewButton = new JButton("Aristas y vertices");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switchPanels(panel);
 			}
 		});
-		btnNewButton.setBounds(102, 14, 135, 23);
+		btnNewButton.setBounds(295, 14, 135, 23);
 		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Ver Grafo original");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel_1);
-			}
-		});
-		btnNewButton_1.setBounds(313, 14, 161, 23);
-		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("AGM");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -757,13 +802,13 @@ public class Form {
 		btnNewButton_2.setBounds(538, 14, 89, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Regiones");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnNewButton_1 = new JButton("Ver Grafo original");
+		btnNewButton_1.setBounds(78, 14, 161, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel_3);
+				switchPanels(panel_1);
 			}
 		});
-		btnNewButton_3.setBounds(696, 14, 89, 23);
-		frame.getContentPane().add(btnNewButton_3);
 	}
 }

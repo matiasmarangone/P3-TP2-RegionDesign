@@ -95,9 +95,9 @@ public class MainForm extends JFrame
         buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPane.add(label1);
         
-        Container contentPane = getContentPane();
-        contentPane.add(listPane, BorderLayout.CENTER);
-        contentPane.add(buttonPane, BorderLayout.PAGE_END);
+        //Container contentPane = getContentPane();
+        //contentPane.add(listPane, BorderLayout.CENTER);
+        //contentPane.add(buttonPane, BorderLayout.PAGE_END);
         
 		//panelMapa.setBounds(100, 100, 1200, 800);
 		//frame.getContentPane().add(panelMapa);
