@@ -6,24 +6,45 @@ import java.util.Set;
 public class Grafo
 {
 	// Representamos el grafo por su matriz de adyacencia
-	private boolean[][] A;
+	 int vertices;
+     int matrix[][];
 	
 	// La cantidad de vertices esta predeterminada desde el constructor
-	public Grafo(int vertices)
-	{
-		A = new boolean[vertices][vertices];
+	public Grafo(int vertice) {
+        this.vertices = vertice;
+        matrix = new int[vertice][vertice];
+    }
+	
+	public Grafo() {
+
+	}
+
+	public void agregarArista(int verticeOrigen, int verticeDestino, int peso) {
+
+		verificarVertice(verticeOrigen);
+		verificarVertice(verticeDestino);
+		verificarDistintos(verticeOrigen, verticeDestino);
+
+		//add edge
+		matrix[verticeOrigen][verticeDestino]=peso;
+
+		//add back edge for undirected graph
+		matrix[verticeDestino][verticeOrigen] = peso;
 	}
 	
-	// Agregado de aristas
-	public void agregarArista(int i, int j)
-	{
-		verificarVertice(i);
-		verificarVertice(j);
-		verificarDistintos(i, j);
+	   //get the vertex with minimum key which is not included in MST
+    public int getVerticeValorMinimo(boolean [] mst, int [] key){
+        int minKey = Integer.MAX_VALUE;
+        int vertex = 0;
+        for (int i = 0; i <vertices ; i++) {
+            if(mst[i]==false && minKey>key[i]){
+                minKey = key[i];
+                vertex = i;
+            }
+        }
+        return vertex;
+    }
 
-		A[i][j] = true;
-		A[j][i] = true;
-	}
 	
 	// Eliminacion de aristas
 	public void eliminarArista(int i, int j)
@@ -32,24 +53,28 @@ public class Grafo
 		verificarVertice(j);
 		verificarDistintos(i, j);
 
-		A[i][j] = false;
-		A[j][i] = false;
+		matrix[i][j] = 0;
+		matrix[j][i] = 0;
 	}
 
 	// Informa si existe la arista especificada
-	public boolean existeArista(int i, int j)
+	public int existeArista(int i, int j)
 	{
 		verificarVertice(i);
 		verificarVertice(j);
 		verificarDistintos(i, j);
 
-		return A[i][j];
+		return matrix[i][j];
 	}
 
 	// Cantidad de vertices
-	public int tamano()
+	public int dimension()
 	{
-		return A.length;
+		return matrix.length;
+	}
+	
+	public int[][] getMatriz(){
+		return matrix;
 	}
 	
 	// Vecinos de un vertice
@@ -58,9 +83,9 @@ public class Grafo
 		verificarVertice(i);
 		
 		Set<Integer> ret = new HashSet<Integer>();
-		for(int j = 0; j < this.tamano(); ++j) if( i != j )
+		for(int j = 0; j < this.dimension(); ++j) if( i != j )
 		{
-			if( this.existeArista(i,j) )
+			if( this.existeArista(i,j) != 0 )
 				ret.add(j);
 		}
 		
@@ -73,7 +98,7 @@ public class Grafo
 		if( i < 0 )
 			throw new IllegalArgumentException("El vertice no puede ser negativo: " + i);
 		
-		if( i >= A.length )
+		if( i >= matrix.length )
 			throw new IllegalArgumentException("Los vertices deben estar entre 0 y |V|-1: " + i);
 	}
 

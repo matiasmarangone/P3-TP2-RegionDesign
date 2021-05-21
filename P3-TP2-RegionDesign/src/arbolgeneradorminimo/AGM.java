@@ -40,6 +40,10 @@ public class AGM {
 	
 	//Variable donde vamos a guardar el grafo despues de aplicarle AGM.
 	static int[][]grafoArgentinaAGM;
+	
+	static int verticesAGM[];
+	
+	static boolean verticesVisitados[];
 
 	//-------------------------Funciones auxiliares-----------------------------------------------------------
 	public static boolean contains(final int[] arr, final int key) {
@@ -192,7 +196,7 @@ public class AGM {
 
 	//-------------------------Funciones AGM y Regiones--------------------------------------------------------
 	
-	static int encontrarVerticeMenorPeso(int pesos[], Boolean verticesVisitados[])   
+	static int encontrarVerticeMenorPeso(int pesos[], boolean verticesVisitados[])   
 	{   
 		// Initialize min value and its index  
 		int minimum_index = -1;   
@@ -281,13 +285,13 @@ public class AGM {
 	{   
 		//Este array va a contener los vertices seleccionados para el AGM de acuerdo al peso minimo.
 		//El array puede contener el mismo vertice varias veces ya que puede que tenga mas de un vecino con peso minimo
-		int verticesAGM[] = new int[grafoMatrizAdyacencia.length];   
+		verticesAGM = new int[grafoMatrizAdyacencia.length];   
 
 		//Este array va a contener los pesos minimos a medida que vamos recorriendo los vertices
 		int pesos[] = new int[grafoMatrizAdyacencia.length];   
 
 		//este array booleano a medida que visitamos los vertices se pondra en true el indice correspondiente
-		Boolean verticesVisitados[] = new Boolean[grafoMatrizAdyacencia.length];   
+		verticesVisitados = new boolean[grafoMatrizAdyacencia.length];   
 
 		//completamos el array de pesos con el valor maximo posible de integer
 		//ponemos en falso todos los valores del array de vertices visitados ya que cuando lo creamos su valor por defecto es null
