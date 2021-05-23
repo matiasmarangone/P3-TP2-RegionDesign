@@ -4,8 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ArbolTest {
+import grafos.Grafo;
 
+public class ArbolTest {
+	
 	public boolean todosTrue(boolean[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
@@ -17,72 +19,47 @@ public class ArbolTest {
 
 	@Test
 	public void cantidadDeVerticesTest() {
-		int[][] grafoArgentina = {
-				{0,63,0,0,0,22,0,61,0,0,52,0,0,0,0,70,0,0,0,0,23,0,0,0},
-				{63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,58,0,0,0,0,0,69,0,0,0,0,45,0,0,0,0,28,0,20},
-				{0,0,0,0,0,0,23,0,33,0,0,0,0,0,0,0,69,0,0,0,32,26,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,66,0,0,0,0},
-				{22,0,58,0,0,0,0,0,0,0,44,35,0,0,0,0,0,0,55,0,69,39,0,0},
-				{0,0,0,23,0,0,0,41,0,0,0,0,0,51,0,0,0,0,0,0,30,0,0,0},
-				{61,0,0,0,0,0,41,0,0,0,0,0,0,0,0,0,0,0,0,0,46,0,0,0},
-				{0,0,0,33,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,49,0,0,0,0,0,0,0},
-				{52,0,0,0,0,44,0,0,0,0,0,0,34,0,60,46,0,0,27,0,0,0,0,0},
-				{0,0,69,0,0,35,0,0,0,0,0,0,0,0,0,0,0,55,69,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,34,0,0,0,61,0,0,69,30,0,0,0,0,0},
-				{0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,60,0,61,0,0,33,0,0,0,0,0,0,0,0},
-				{70,0,0,0,70,0,0,0,0,0,46,0,0,0,33,0,0,0,0,0,0,0,0,0},
-				{0,0,45,69,0,0,0,0,50,49,0,0,0,0,0,0,0,0,0,0,0,22,0,51},
-				{0,0,0,0,0,0,0,0,0,0,0,55,69,0,0,0,0,0,32,0,0,0,0,0},
-				{0,0,0,0,0,55,0,0,0,0,27,69,30,0,0,0,0,32,0,0,0,0,0,0},
-				{0,0,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,0},
-				{23,0,0,32,0,69,30,46,0,0,0,0,0,0,0,0,0,0,0,0,0,37,0,0},
-				{0,0,28,26,0,39,0,0,0,0,0,0,0,0,0,0,22,0,0,0,37,0,0,54},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,0,0,0,0},
-				{0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,51,0,0,0,0,54,0,0},
-		};
 		
-		//AGM.arbolGeneradorMinimo(grafoArgentina, 2);
-		ArbolGeneradorMinimo.primMST();
-		assertEquals(AGM.verticesAGM.length, grafoArgentina.length);
+		int vertices =6;
+		   Grafo graph = new Grafo(vertices);
+		   graph.agregarArista(0, 1, 4); graph.agregarArista(0, 2, 3);
+		   graph.agregarArista(1, 2, 1); graph.agregarArista(1, 3, 2);
+		   graph.agregarArista(2, 3, 4); graph.agregarArista(3, 4, 2);
+		   graph.agregarArista(4, 5, 6);
 		
+		ArbolGeneradorMinimo.primMST(graph);
+		assertEquals(ArbolGeneradorMinimo.resultSet.length, graph.dimension());
+		
+	}
+
+	@Test
+	public void verticesVisitadosTest() {
+
+		int vertices =6;
+		Grafo graph = new Grafo(vertices);
+		graph.agregarArista(0, 1, 4); graph.agregarArista(0, 2, 3);
+		graph.agregarArista(1, 2, 1); graph.agregarArista(1, 3, 2);
+		graph.agregarArista(2, 3, 4); graph.agregarArista(3, 4, 2);
+		graph.agregarArista(4, 5, 6);
+
+		ArbolGeneradorMinimo.primMST(graph);
+
+		assertTrue(todosTrue(ArbolGeneradorMinimo.verticesVisitados));
 	}
 	
 	@Test
 	public void cantidadDeAristasTest() {
-		int[][] grafoArgentina = {
-				{0,63,0,0,0,22,0,61,0,0,52,0,0,0,0,70,0,0,0,0,23,0,0,0},
-				{63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,58,0,0,0,0,0,69,0,0,0,0,45,0,0,0,0,28,0,20},
-				{0,0,0,0,0,0,23,0,33,0,0,0,0,0,0,0,69,0,0,0,32,26,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,66,0,0,0,0},
-				{22,0,58,0,0,0,0,0,0,0,44,35,0,0,0,0,0,0,55,0,69,39,0,0},
-				{0,0,0,23,0,0,0,41,0,0,0,0,0,51,0,0,0,0,0,0,30,0,0,0},
-				{61,0,0,0,0,0,41,0,0,0,0,0,0,0,0,0,0,0,0,0,46,0,0,0},
-				{0,0,0,33,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,49,0,0,0,0,0,0,0},
-				{52,0,0,0,0,44,0,0,0,0,0,0,34,0,60,46,0,0,27,0,0,0,0,0},
-				{0,0,69,0,0,35,0,0,0,0,0,0,0,0,0,0,0,55,69,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,34,0,0,0,61,0,0,69,30,0,0,0,0,0},
-				{0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,60,0,61,0,0,33,0,0,0,0,0,0,0,0},
-				{70,0,0,0,70,0,0,0,0,0,46,0,0,0,33,0,0,0,0,0,0,0,0,0},
-				{0,0,45,69,0,0,0,0,50,49,0,0,0,0,0,0,0,0,0,0,0,22,0,51},
-				{0,0,0,0,0,0,0,0,0,0,0,55,69,0,0,0,0,0,32,0,0,0,0,0},
-				{0,0,0,0,0,55,0,0,0,0,27,69,30,0,0,0,0,32,0,0,0,0,0,0},
-				{0,0,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,0},
-				{23,0,0,32,0,69,30,46,0,0,0,0,0,0,0,0,0,0,0,0,0,37,0,0},
-				{0,0,28,26,0,39,0,0,0,0,0,0,0,0,0,0,22,0,0,0,37,0,0,54},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,0,0,0,0},
-				{0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,51,0,0,0,0,54,0,0},
-		};
-		
-		AGM.arbolGeneradorMinimo(grafoArgentina, 2);
-		//System.out.println(AGM.verticesVisitados);
-		//assertEquals(AGM.verticesAGM.length, grafoArgentina.length);
-		assertTrue(todosTrue(AGM.verticesVisitados));
+
+		int vertices =6;
+		Grafo graph = new Grafo(vertices);
+		graph.agregarArista(0, 1, 4); graph.agregarArista(0, 2, 3);
+		graph.agregarArista(1, 2, 1); graph.agregarArista(1, 3, 2);
+		graph.agregarArista(2, 3, 4); graph.agregarArista(3, 4, 2);
+		graph.agregarArista(4, 5, 6);
+
+		ArbolGeneradorMinimo.primMST(graph);
+
+		assertEquals(ArbolGeneradorMinimo.resultSet.length-1, graph.dimension()-1);
 	}
 
 }
