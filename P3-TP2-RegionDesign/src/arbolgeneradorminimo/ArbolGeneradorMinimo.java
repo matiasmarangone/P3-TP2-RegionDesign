@@ -1,5 +1,8 @@
 package arbolgeneradorminimo;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import grafos.Grafo;
 
 
@@ -19,6 +22,8 @@ public class ArbolGeneradorMinimo {
 	//Variable usada para brindarle a la interfaz una version en String del AGM con las regiones buscadas
 	static String arbol_y_regiones = "";
 	
+	static String aristasEliminadasPorRegion = "";
+	
 	//static int cantidadAristas;
 	//static Grafo grafoTest;
 	//static int vertices = grafoTest.dimension();
@@ -27,9 +32,16 @@ public class ArbolGeneradorMinimo {
 	//Grafo vacio, donde se guardaran los pesos ingresados por el usuario a través de la interfaz
 	static Grafo grafoArgentinaPesosUsuario = new Grafo(24);
 
+	public static boolean contains(final int[] arr, final int key) {
+		return Arrays.stream(arr).anyMatch(i -> i == key);
+	}
 	
 	public static String renderAGM() {
 		return arbol_y_regiones;
+	}
+	
+	public static String renderAgmRegiones() {
+		return aristasEliminadasPorRegion;
 	}
 	
 	public static void primMST(Grafo grafoTest){
@@ -82,7 +94,70 @@ public class ArbolGeneradorMinimo {
 		printMST(resultSet, grafoTest);
 	}
 
+	public static void separarRegiones(ResultSet[] resultSet, Grafo grafoTest) {
+		
+		//-Ordenar descendente el array
+		int numerosOrdenados[] = new int[grafoTest.dimension()];
+		for(int i = 1; i < grafoTest.dimension() ; i++) {
+			numerosOrdenados[i-1] = resultSet[i].weight;
+		}
+		
+		//Conversion del array de int a Integer para usar el Arrays sort que ordena descendente los valores
+		Integer[] numOrdenados = Arrays.stream( numerosOrdenados ).boxed().toArray( Integer[]::new );
+		Arrays.sort(numOrdenados, Collections.reverseOrder());
+		
+		
+		/*
+		 * for(int i=0;i<numOrdenados.length; i++) {
+		 * System.out.println("array de numeros ordenados: " + numOrdenados[i]); }
+		 */
+		
+		//agarrar los primeros N-1 numeros en base a las regiones buscadas por el usuario, guardarlos en un array
+		int destino = regiones_buscadas-1;
+		Integer[] aristasParaEliminar = Arrays.copyOfRange(numOrdenados, 0, destino);
+		
+		int aristasParaEliminarINT[] = new int[aristasParaEliminar.length];
 
+		for(int i=0;i<aristasParaEliminar.length;i++) {
+			aristasParaEliminarINT[i] = aristasParaEliminar[i].intValue();
+		}
+		
+		// al imprimir el AGM, chequear si el valor es alguno de los ultimos obtenidos anteriormente e imprimirlo en rojo al final
+		
+		int total_min_weight = 0;
+		aristasEliminadasPorRegion = aristasEliminadasPorRegion.concat("Arbol Generador Minimo de Grafo G: " + "\r \n");
+		//System.out.println("Arbol Generador Minimo de Grafo G: ");
+		for (int i = 1; i <grafoTest.dimension() ; i++) {
+			/*
+			 * System.out.println( "Arista: " + i + " - " + resultSet[i].parent + " peso: "
+			 * + resultSet[i].weight );
+			 */
+			if(contains(aristasParaEliminarINT, resultSet[i].weight)){
+				// do nothing
+				
+			}else {
+				if(i%2==0) {
+					aristasEliminadasPorRegion = aristasEliminadasPorRegion.concat("Arista: " + i + " - " + resultSet[i].parent +
+							" peso: " + resultSet[i].weight + "\r \n");
+					total_min_weight += resultSet[i].weight;
+				}
+				else {
+					aristasEliminadasPorRegion = aristasEliminadasPorRegion.concat("Arista: " + i + " - " + resultSet[i].parent +
+							" peso: " + resultSet[i].weight + "\t  ");
+					total_min_weight += resultSet[i].weight;
+				}
+			}
+			
+			
+		}
+		//System.out.println("Peso total del Arbol : " + total_min_weight);
+		
+		aristasEliminadasPorRegion = aristasEliminadasPorRegion.concat("\r \n Peso total del Arbol : " + total_min_weight);
+		
+		
+		//imprimir el resto del AGM normalmente
+		
+	}
 
 	public static void printMST(ResultSet[] resultSet, Grafo grafoTest){
 		int total_min_weight = 0;
@@ -100,7 +175,7 @@ public class ArbolGeneradorMinimo {
 			}
 			else {
 				arbol_y_regiones = arbol_y_regiones.concat("Arista: " + i + " - " + resultSet[i].parent +
-						" peso: " + resultSet[i].weight + "\t  |");
+						" peso: " + resultSet[i].weight + "\t  ");
 			}			
 			
 			
@@ -109,6 +184,10 @@ public class ArbolGeneradorMinimo {
 		//System.out.println("Peso total del Arbol : " + total_min_weight);
 		
 		arbol_y_regiones = arbol_y_regiones.concat("\r \n Peso total del Arbol : " + total_min_weight);
+		
+		
+		separarRegiones(resultSet,grafoTest);
+		
 	}
 
 	public static void arbolGeneradorMinimoUsuario(int regiones, int[] pesosIngresados) {

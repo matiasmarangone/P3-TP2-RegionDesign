@@ -547,12 +547,17 @@ public class Form {
 
 
 
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(0, 0, 956, 468);
+		layeredPane.add(panel_4);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(0, 0, 956, 468);
 		layeredPane.add(panel_2);
 
 		JTextPane txtpnPanelAgm = new JTextPane();
+		
+		JTextPane txtpnPanelAgmRegiones = new JTextPane();
 
 
 		JButton btnNewButton_4 = new JButton("Generar");
@@ -622,6 +627,11 @@ public class Form {
 				panel_2.add(txtpnPanelAgm);
 				panel_2.repaint();
 				
+				
+				txtpnPanelAgmRegiones.setText(ArbolGeneradorMinimo.renderAgmRegiones());
+				panel_4.add(txtpnPanelAgmRegiones);
+				panel_4.repaint();
+				
 				switchPanels(panel_2);
 
 			}
@@ -633,6 +643,11 @@ public class Form {
 		txtpnPorFavorCompletar.setText("Por favor completar el peso de las aristas con valores numericos enteros. Lo mismo para la cantidad de regiones buscadas");
 		txtpnPorFavorCompletar.setBounds(76, 11, 794, 20);
 		panel.add(txtpnPorFavorCompletar);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(26, 21, 10, 10);
+		panel.add(panel_3);
+		
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 956, 468);
@@ -822,6 +837,15 @@ public class Form {
 		
 		
 		switchPanels(panel_1);
+		
+		JButton btnNewButton_3 = new JButton("AGM en Regiones");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				switchPanels(panel_4);
+			}
+		});
+		btnNewButton_3.setBounds(761, 14, 182, 23);
+		frame.getContentPane().add(btnNewButton_3);
 		//panel_1.repaint();
 		
 	}  //end of private void initialize()

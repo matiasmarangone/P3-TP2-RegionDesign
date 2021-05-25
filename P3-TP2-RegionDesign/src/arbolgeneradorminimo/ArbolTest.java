@@ -26,7 +26,7 @@ public class ArbolTest {
 		   graph.agregarArista(1, 2, 1); graph.agregarArista(1, 3, 2);
 		   graph.agregarArista(2, 3, 4); graph.agregarArista(3, 4, 2);
 		   graph.agregarArista(4, 5, 6);
-		
+		ArbolGeneradorMinimo.regiones_buscadas = 2;
 		ArbolGeneradorMinimo.primMST(graph);
 		assertEquals(ArbolGeneradorMinimo.resultSet.length, graph.dimension());
 		
@@ -56,7 +56,7 @@ public class ArbolTest {
 		graph.agregarArista(1, 2, 1); graph.agregarArista(1, 3, 2);
 		graph.agregarArista(2, 3, 4); graph.agregarArista(3, 4, 2);
 		graph.agregarArista(4, 5, 6);
-
+		ArbolGeneradorMinimo.regiones_buscadas = 2;
 		ArbolGeneradorMinimo.primMST(graph);
 
 		assertEquals(ArbolGeneradorMinimo.resultSet.length-1, graph.dimension()-1);
